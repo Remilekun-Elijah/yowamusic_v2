@@ -1,0 +1,44 @@
+        .blue-text {
+            color: var(--primary-blue);
+        }
+        
+        .youtube-btn {
+            background-color: #af2727 !important;
+            color: white !important;
+            border-color: #af2727 !important;
+        }
+        
+        .youtube-btn:hover,
+        .youtube-btn:focus {
+            background-color: #333 !important;
+            border-color: #333 !important;
+        }
+        
+        .youtube-btn:after {
+            background-color: #af2727 !important;
+        }
+        
+        .bg-image {
+            background-position: top center !important
+        }
+        
+        #newsletter {
+            /* padding-top: 20px !important; */
+            /* margin-top: -20px !important; */
+        }
+        
+        #newsletter :is(.form-style-1) {
+            border-radius: 20px 20px 5px 5px !important;
+        }
+        
+        .subscribe-form-1-email {
+            font-size: 30px !important;
+        }
+        
+        .text-black {
+            color: black !important
+        }
+        
+        .text-black:hover {
+            color: var(--text-primary) !important
+        }
