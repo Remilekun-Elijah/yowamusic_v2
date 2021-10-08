@@ -6,9 +6,7 @@ const config = {
 const express = require("express");
 const chalk = require("chalk");
 const morgan = require('morgan');
-// const mongodb = require("./database");
 
-// mongodb.connect();
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));

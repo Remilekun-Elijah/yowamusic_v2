@@ -3,7 +3,6 @@ const config = require(path.resolve("utils", "config.js"));
 const { Pool } = require("pg");
 
 const chalk = require("chalk");
-const mongoose = require("mongoose");
 
 class Database {
     postgresql() {
@@ -45,22 +44,6 @@ class Database {
         return { checkConnection, Pool: pool, knex }
     }
 
-    mongodb() {
-        const connect = (conString) => {
-            console.log(chalk.yellowBright('💻 Initiating MongoDB connection...'));
-            return mongoose.connect(conString || config.mongodb_uri, {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-                useCreateIndex: true,
-                useFindAndModify: false
-            }, err => {
-                if (err) console.log(chalk.red("❌ MongoDB could not connect:", err.message))
-                else console.log(chalk.greenBright("Mongodb connected successfully 🚀"));
-
-            })
-        }
-        return { connect };
-    }
 }
 const { postgresql } = new Database();
 postgresql().checkConnection();

@@ -44,7 +44,7 @@ class User {
 
             return res[0]
         }).catch(err => {
-            console.log(err.message);
+
             if (err.message.includes("duplicate key")) throw new Error("You have already been added to the waitlist.");
 
             else throw new Error("Failed to create user");
@@ -59,7 +59,6 @@ class User {
 
             throw new Error("Failed to fetch users");
         });
-
     }
 }
 

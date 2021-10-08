@@ -5,10 +5,11 @@ const model = new Model();
 class lead {
 
     home(req, res) {
-
         res.render('../views/index');
     }
-
+    newsletter(req, res) {
+        res.render('../views/newsletter');
+    }
 
     createSubscriber(req, res) {
         const { email } = req.body;
