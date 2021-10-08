@@ -29,6 +29,15 @@ class Model {
             else throw err;
         }
     }
+    getUsers() {
+        const query = new Query();
+        return query.getUsers().then(data => {
+            if (data.length > 0) {
+                return data;
+            } else throw new Error("No users at the moment");
+        });
+    }
+
 
     sendAdminReceipt(user) {
         const adminEmails = "remilekunelijah21997@gmail.com, yowamusic@gmail.com";

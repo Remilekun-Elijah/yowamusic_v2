@@ -51,6 +51,16 @@ class User {
         });
     }
 
+    getUsers() {
+        return knex.select('*').from('subscriber').then(res => {
+
+            return res
+        }).catch(err => {
+
+            throw new Error("Failed to fetch users");
+        });
+
+    }
 }
 
 module.exports = User;
