@@ -1564,11 +1564,19 @@ document.addEventListener("DOMContentLoaded", function() {
                         error: function(result) {
                             if (isNoviBuilder)
                                 return;
-
+                            const res = result.responseJSON;
+                            console.log(result.responseJSON);
                             var output = $("#" + $(plugins.rdMailForm[this.extraData.counter]).attr("data-form-output")),
                                 form = $(plugins.rdMailForm[this.extraData.counter]);
 
-                            output.text(msg[result]);
+                            output.addClass("active error");
+                            output.text(res.message);
+                            setTimeout(function() {
+                                output.removeClass("active error success");
+
+
+                            }, 3500);
+
                             form.removeClass('form-in-process');
 
                             if (formHasCaptcha) {
@@ -1576,6 +1584,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             }
                         },
                         success: function(result) {
+                            console.log(result.data)
                             if (isNoviBuilder)
                                 return;
 
@@ -1590,7 +1599,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             if (formHasCaptcha) {
                                 grecaptcha.reset();
                             }
-
+                            if (result.okay) result = "MF000";
                             result = result.length === 5 ? result : 'MF255';
                             output.text(msg[result]);
 
