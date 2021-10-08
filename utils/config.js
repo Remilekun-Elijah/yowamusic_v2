@@ -18,8 +18,6 @@ environments.staging = {
     'platformEncryptionKey': 'ZPUyxiyqGiYyXutHJfG3jTrpnDsh0XqK',
     'database_user': 'ewmrhumr_remilekunelijah',
     'database_host': 'localhost',
-    'user': "ewmrhumr_remilekunelijah",
-    'db': "entrep20_entrepreneurshookup",
     'database': 'ewmrhumr_users',
     'pin': "09023007389@fb.com",
     'database_password': '09023007389@fb.com',
