@@ -61,8 +61,9 @@ class User {
         });
     }
     getOneUser(email) {
-        return knex('subscriber').where({ email }).then(res => {
-
+        console.log(email);
+        return knex('subscriber').where(email).then(res => {
+            console.log(res[0]);
             return res[0]
         }).catch(err => {
 

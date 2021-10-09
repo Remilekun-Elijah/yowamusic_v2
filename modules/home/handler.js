@@ -8,7 +8,7 @@ class lead {
         res.render('../views/index');
     }
     newsletter(req, res) {
-        res.render('../views/newsleter');
+        res.render('../views/newsletter');
     }
 
     createSubscriber(req, res) {
@@ -43,7 +43,7 @@ class lead {
         });
 
     }
-    getSubscribersEmails(req, res) {
+    broadcast(req, res) {
         model.getEmails().then(data => {
             if (data) res.status(200).json({ okay: true, data });
             else res.status(400).json({ okay: false, message: "Could not get the subscribers, please try again" });
