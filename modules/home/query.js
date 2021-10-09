@@ -60,6 +60,15 @@ class User {
             throw new Error("Failed to fetch users");
         });
     }
+    getOneUser(email) {
+        return knex('subscriber').where({ email }).then(res => {
+
+            return res[0]
+        }).catch(err => {
+
+            throw new Error("Failed to fetch user");
+        });
+    }
 
     getUsersEmail() {
         return knex.select('email').from('subscriber').then(res => {

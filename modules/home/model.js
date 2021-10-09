@@ -37,7 +37,16 @@ class Model {
             } else throw new Error("No users at the moment");
         });
     }
-
+    getOneUser(email) {
+        const query = new Query();
+        return query.getOneUser(email).then(data => {
+            if (data) {
+                return data;
+            } else throw new Error("User not found in our records.");
+        }).catch(err => {
+            throw err;
+        })
+    }
     async getEmails() {
         const query = new Query();
         const emails = query.getUsersEmail().then(data => {

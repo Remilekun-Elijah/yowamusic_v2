@@ -32,7 +32,17 @@ class lead {
             res.status(400).json({ okay: false, message: err.message });
         })
     }
+    getOneUser(req, res) {
+        const { email } = req.params;
+        model.getOneUser({ email }).then(data => {
+            if (data) res.status(200).json({ okay: true, data });
+            else res.status(400).json({ okay: false, message: "Could not get the subscriber, please try again" });
+        }).catch(err => {
+            console.log(err.message);
+            res.status(400).json({ okay: false, message: err.message });
+        });
 
+    }
     getSubscribersEmails(req, res) {
         model.getEmails().then(data => {
             if (data) res.status(200).json({ okay: true, data });
