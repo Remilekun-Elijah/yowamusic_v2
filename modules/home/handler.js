@@ -8,7 +8,7 @@ class lead {
         res.render('../views/index');
     }
     newsletter(req, res) {
-        res.render('../views/newsletter');
+        res.render('../views/newsleter');
     }
 
     createSubscriber(req, res) {
@@ -32,6 +32,16 @@ class lead {
             res.status(400).json({ okay: false, message: err.message });
         })
     }
-}
 
+    getSubscribersEmails(req, res) {
+        model.getEmails().then(data => {
+            if (data) res.status(200).json({ okay: true, data });
+            else res.status(400).json({ okay: false, message: "Could not get the subscribers, please try again" });
+        }).catch(err => {
+            console.log(err.message);
+            res.status(400).json({ okay: false, message: err.message });
+        })
+    }
+
+}
 module.exports = new lead();

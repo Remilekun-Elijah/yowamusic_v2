@@ -44,7 +44,7 @@ class User {
 
             return res[0]
         }).catch(err => {
-
+            console.log(err.message);
             if (err.message.includes("duplicate key")) throw new Error("You have already been added to the waitlist.");
 
             else throw new Error("Failed to create user");
@@ -53,6 +53,16 @@ class User {
 
     getUsers() {
         return knex.select('*').from('subscriber').then(res => {
+
+            return res
+        }).catch(err => {
+
+            throw new Error("Failed to fetch users");
+        });
+    }
+
+    getUsersEmail() {
+        return knex.select('email').from('subscriber').then(res => {
 
             return res
         }).catch(err => {
