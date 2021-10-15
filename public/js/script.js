@@ -1495,7 +1495,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     $form.attr('novalidate', 'novalidate').ajaxForm({
                         data: {
-                            "form-type": $form.attr("data-form-type") || "contact",
+
                             "counter": i
                         },
                         beforeSubmit: function(arr, $form, options) {

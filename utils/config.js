@@ -3,8 +3,8 @@ var environments = {};
 environments.staging = {
     'port': 3000,
     'host': 'http://localhost:3000/api/v1/',
-    'secret': 'easyfood',
-    'application_name': 'easyfood',
+    'secret': 'remilekun_1997',
+    'application_name': 'Yowamusic',
     'db': 'postgres://postgres:easyfood@localhost:5432/easyfood',
     'sendgrid_api_key': 'Bearer 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',
     'sendgrid_username': 'myapp',
@@ -16,15 +16,23 @@ environments.staging = {
     'aws_secret_key': 'fxsWzhTLluXCPet4mixC08ldxOuvYZtuqWrIkPrk',
     'aws_bucket_fname': 'easyfood',
     'platformEncryptionKey': 'ZPUyxiyqGiYyXutHJfG3jTrpnDsh0XqK',
-    'database_user': 'ewmrhumr_remilekunelijah',
+
+    'database_user': 'postgres',
     'database_host': 'localhost',
-    'database': 'ewmrhumr_users',
-    'pin': "09023007389@fb.com",
-    'database_password': "09023007389@fb.com",
+    'database': 'easyfood',
+    'database_password': '12345',
     'database_port': 5432,
+
+    'user': "ewmrhumr_remilekunelijah",
+    'db': "entrep20_entrepreneurshookup",
+
+    'pin': "09023007389@fb.com",
+
     "cloudinary_apiKey": "467886654622314",
     'cloudinary_api_secret': 'CSTLasPM7kL5c2JQuoplitK65xI',
-    'cloudinary_cloud_name': 'remilekunelijah'
+    'cloudinary_cloud_name': 'remilekunelijah',
+
+    "mongodb_uri": "mongodb://remi:09023007389@bridal-shard-00-00.i1rsb.mongodb.net:27017,bridal-shard-00-01.i1rsb.mongodb.net:27017,bridal-shard-00-02.i1rsb.mongodb.net:27017/bridalkandil?ssl=true&replicaSet=atlas-3fipcz-shard-0&authSource=admin&retryWrites=true&w=majority",
 };
 
 environments.production = {
@@ -32,6 +40,14 @@ environments.production = {
     'host': process.env.host,
     'secret': process.env.secret,
     'application_name': process.env.application_name,
+
+    'database_user': 'ewmrhumr_remilekunelijah',
+    'database_host': 'localhost',
+    'database': 'ewmrhumr_users',
+    'database_password': '09023007389@fb.com',
+    'database_port': 5432,
+
+
     'db': process.env.db,
     'sendgrid_api_key': process.env.sendgrid_api_key,
     'sendgrid_username': process.env.username,
@@ -45,7 +61,6 @@ environments.production = {
     'platformEncryptionKey': process.env.platformEncryptionKey
 };
 
-var currentEnvironment = typeof(process.env.NODE_ENV) == 'string' ? process.env.NODE_ENV.toLowerCase() : '';
-var environmentToExport = typeof(environments[currentEnvironment]) == 'object' ? environments[currentEnvironment] : environments.staging;
 
-module.exports = environmentToExport;
+
+module.exports = process.env.NODE_ENV === 'production' ? environments.production : environments.staging;
