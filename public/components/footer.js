@@ -49,7 +49,7 @@ const footer = `
                                   
                                 </ul>  
                               
-                              <p> Built by <a href="mailto:remilekunelijah21997">Remilekun Elijah</a></p>
+                              <p> Built by <a href="mailto:remilekunelijah21997@gmail.com">Remilekun Elijah</a></p>
                           
                         </div>
                     </div>
