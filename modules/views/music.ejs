@@ -41,6 +41,10 @@
             height: 100%;
             z-index: 1
         }
+        
+        .jp-player-init .jp-playlist {
+            padding-bottom: 10px !important;
+        }
     </style>
 </head>
 
@@ -139,31 +143,134 @@
                 </ul>
             </div>
         </div>
+
         <!-- Music-->
         <section class="section section-xl bg-default">
             <div class="container">
 
                 <!-- Latest tracks -->
-                <div class="item mb-5">
-
+                <div class="item mb-4">
                     <article class="product-beth">
-                        <h2 class="product-beth-title mb-5" style="display: inline-block;">
+                        <h2 class="product-beth-title" style="display: inline-block;">
                             Latest Track(s)
                             <div class=" display-inline product-beth-badge text-right">2021</div>
                         </h2>
 
+
                         <div class="player-lis" id="newTracks">
                             <!-- DYNAMIC DATA COMING HERE -->
+                            <% model.newTracks.forEach(function(track) { %>
+                                <div class="jp-player-init mt-5">
+                                    <div class="jp-jplayer"></div>
+                                    <div class="jp-audio jp-audio-<%- track.id %>" role="application" aria-label="media player">
+                                        <ul class="jp-player-list">
+                                            <li class="jp-player-list-item" data-jp-title="<%- track.title %>" data-jp-artist="" data-jp-mp3="<%-track.url %>"></li>
+                                        </ul>
+                                        <div class="jp-interface">
+                                            <div class="jp-button jp-controls">
+                                                <button class="jp-btn jp-play" role="button" tabindex="0">play</button>
+                                            </div>
+                                            <div class="jp-playlist d-flex">
+                                                <ul>
+                                                    <li> </li>
+                                                </ul>
+                                                <button data-url="<%- track.url %>" class="btn btn-dark fa fa-download p-0 ml-4 " style='font-size:20px'></button>
+                                            </div>
+                                            <div class="jp-time-rail">
+                                                <div class="jp-progress">
+                                                    <div class="jp-seek-bar">
+                                                        <div class="jp-play-bar"></div>
+                                                    </div>
+                                                    <div class="jp-time-wrapper">
+                                                        <div class="jp-duration"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="jp-no-solution"><span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your<a href="http://get.adobe.com/flashplayer/" target="_blank"> Flash plugin</a>.</div>
+                                    </div>
+                                </div>
+
+                                <div class="group-md group-middle">
+                                    <% if(track.listenLink) {%>
+                                        <a class="button button-gray-800 button-zakaria" href="<%- track.listenLink %>">Listen Now <i class="text-warning fa fa-external-link "> </i></a>
+                                        <%}%>
+                                            <% if(track.buyLink) {%>
+                                                <a class="button button-default-outline button-zakaria" href="<%- track.buyLink %>">Buy on Itunes <span class="mdi mdi-apple px-0 mx-0" style="font-size:25px;"></span>
+                                                </a>
+                                                <% } %>
+                                </div>
+                                <%});%>
+
+                                    <!-- END  -->
                         </div>
                     </article>
                 </div>
 
 
                 <!-- First of her kind -->
-                <div class="item my-5 pt-sm-5 pt-2">
+                <div class="item my-4 pt-sm-3 pt-2">
                     <article class="product-beth mt-5" id="albums">
                         <!-- DYNAMIC DATA COMING HERE -->
+                        <% model.albums.forEach(function(album) { %>
+                            <h2 class="product-beth-title" style="display: inline-block;">
+                                <a href="<%- album.listenLink %>">
+                                    <%- album.name %>
+                                </a>
+                                <div class="display-inline product-beth-badge text-right">
+                                    <%- album.year %>
+                                </div>
+                            </h2>
 
+                            <!-- Songs -->
+                            <div class="player-list">
+                                <% album.tracks.forEach(function(track) { %>
+
+                                    <div class="jp-player-init">
+                                        <div class="jp-jplayer"></div>
+                                        <div class="jp-audio jp-audio-<%- track.id %>" role="application" aria-label="media player">
+                                            <ul class="jp-player-list">
+                                                <li class="jp-player-list-item" data-jp-title="<%- track.title %>" data-jp-artist="" data-jp-mp3="<%-track.url %>"></li>
+                                            </ul>
+                                            <div class="jp-interface">
+                                                <div class="jp-button jp-controls">
+                                                    <button class="jp-btn jp-play" role="button" tabindex="0">play</button>
+                                                </div>
+                                                <div class="jp-playlist d-flex">
+                                                    <ul>
+                                                        <li> </li>
+                                                    </ul>
+                                                    <button data-url="<%- track.url %>" class="btn btn-dark p-0 fa fa-download ml-4 " style='font-size:20px'></button>
+                                                </div>
+                                                <div class="jp-time-rail">
+                                                    <div class="jp-progress">
+                                                        <div class="jp-seek-bar">
+                                                            <div class="jp-play-bar"></div>
+                                                        </div>
+                                                        <div class="jp-time-wrapper">
+                                                            <div class="jp-duration"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="jp-no-solution"><span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your<a href="http://get.adobe.com/flashplayer/" target="_blank"> Flash plugin</a>.</div>
+                                        </div>
+                                    </div>
+
+                                    <%});%>
+                            </div>
+
+                            <div class="group-md group-middle">
+                                <% if(album.listenLink) {%>
+                                    <a class="button button-gray-800 button-zakaria" href="<%- album.listenLink %>">Listen Now <i class="text-warning fa fa-external-link "> </i></a>
+                                    <%}%>
+                                        <% if(album.buyLink) {%>
+                                            <a class="button button-default-outline button-zakaria" href="<%- album.buyLink %>">Buy on Itunes <span class="mdi mdi-apple px-0 mx-0" style="font-size:25px;"></span>
+                                                </a>
+                                            <% } %>
+                            </div>
+                            <%});%>
+                                <!-- END  -->
                     </article>
                 </div>
 
@@ -173,6 +280,40 @@
                     <h2 class="product-beth-title text-center text-sm-left mb-3 mt-5">Other Songs</h2>
                     <div class="player-lis" id="otherSongs">
                         <!-- DYNAMIC DATA COMING HERE -->
+                        <% model.others.forEach(function(track) { %>
+
+                            <div class="jp-player-init">
+                                <div class="jp-jplayer"></div>
+                                <div class="jp-audio jp-audio-<%- track.id %>" role="application" aria-label="media player">
+                                    <ul class="jp-player-list">
+                                        <li class="jp-player-list-item" data-jp-title="<%- track.title %>" data-jp-artist="" data-jp-mp3="<%-track.url %>"></li>
+                                    </ul>
+                                    <div class="jp-interface">
+                                        <div class="jp-button jp-controls">
+                                            <button class="jp-btn jp-play" role="button" tabindex="0">play</button>
+                                        </div>
+                                        <div class="jp-playlist d-flex">
+                                            <ul>
+                                                <li> </li>
+                                            </ul>
+                                            <button data-url="<%- track.url %>" class="btn btn-dark p-0 fa fa-download ml-4 " style='font-size:20px'></button>
+                                        </div>
+                                        <div class="jp-time-rail">
+                                            <div class="jp-progress">
+                                                <div class="jp-seek-bar">
+                                                    <div class="jp-play-bar"></div>
+                                                </div>
+                                                <div class="jp-time-wrapper">
+                                                    <div class="jp-duration"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jp-no-solution"><span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your<a href="http://get.adobe.com/flashplayer/" target="_blank"> Flash plugin</a>.</div>
+                                </div>
+                            </div>
+
+                            <%});%>
                     </div>
                 </div>
             </div>
@@ -191,6 +332,16 @@
         <script src="../js/script.js"></script>
         <script src="../components/songs.js"></script>
         <script src="../components/footer.js"></script>
+
+        <script>
+            document.querySelectorAll("button[data-url]").forEach(tag => {
+                tag.addEventListener("click", function(e) {
+                    let songUrlArr = e.target.getAttribute("data-url").split("/");
+                    let songName = songUrlArr[songUrlArr.length - 1];
+                    document.location.href = `audio/${songName}`;
+                });
+            });
+        </script>
 </body>
 
 </html>

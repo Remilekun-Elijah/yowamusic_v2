@@ -7,23 +7,6 @@ const helper = {
     generateUuid: () => uuid.v4(),
 }
 
-knex.table('waitlist').then(function(result) {
-    console.log("User table already exist");
-}).catch(err => {
-    console.log(err.message);
-    knex.schema.createTable("waitlist", table => {
-        table.string("id").unique().notNullable(),
-            table.string("email").unique().notNullable(),
-            table.timestamp("createdAt").defaultTo(knex.fn.now()),
-            table.timestamp("updatedAt").defaultTo(knex.fn.now());
-        console.log("User table created");
-    }).catch(err => {
-        console.log(err);
-    });
-})
-
-
-
 class User {
     constructor(data = {}) {
         this._email = data.email;

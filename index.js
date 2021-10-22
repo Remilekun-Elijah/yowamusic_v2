@@ -36,6 +36,7 @@ app.use(route('video'));
 app.use(route('gallery'));
 app.use(route('contact'));
 
+
 app.use(morgan('dev'));
 
 app.listen(config.port, () => {

@@ -4,7 +4,48 @@ const Joi = require("joi");
 const Query = require("./query");
 const nodemailer = require("nodemailer");
 class Model {
+    getAlbums() {
+        return [{
+            name: 'First Of Her Kind EP',
+            year: '2020',
+            tracks: [{
+                    id: 0,
+                    title: '1. Party',
+                    artist: 'Yowa',
+                    url: '../audios/Yowa Party.mp3'
+                },
+                {
+                    id: 1,
+                    title: '2. Down On Me',
+                    artist: 'Yowa',
+                    url: '../audios/Yowa down on me.mp3'
+                },
+                {
+                    id: 2,
+                    title: '3. No Stop',
+                    artist: 'Yowa',
+                    url: '../audios/yowa no stop.mp3'
+                },
+                {
+                    id: 3,
+                    title: '4. Whenever You Call',
+                    artist: 'Yowa',
+                    url: '../audios/Yowa whenever.mp3'
+                },
+                {
+                    id: 4,
+                    title: '5. Ire',
+                    artist: 'Yowa',
+                    url: '../audios/Yowa Ire.mp3'
+                }
+            ],
+            listenLink: 'https://ampl.ink/2LM9z',
+            buyLink: 'https://music.apple.com/ng/album/first-of-her-kind-ep/1544262179',
+            coverFront: '../images/public/fohkep.jpg',
+            coverBack: '../images/public/fohkep_bc.jpg'
+        }]
 
+    }
     async addUser(user) {
         const schema = Joi.object({
             email: Joi.string().email({ minDomainSegments: 2 }).required()

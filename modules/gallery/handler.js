@@ -1,7 +1,3 @@
-const Model = require("./model");
-const model = new Model();
-
-
 class Gallery {
     page(req, res) {
 

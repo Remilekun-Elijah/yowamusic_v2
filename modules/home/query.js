@@ -8,7 +8,7 @@ const helper = {
 }
 
 knex.table('subscriber').then(function(result) {
-    console.log("User table already exist");
+    console.log("subscriber table already exist");
 }).catch(err => {
     console.log(err.message);
     knex.schema.createTable("subscriber", table => {
@@ -17,7 +17,7 @@ knex.table('subscriber').then(function(result) {
 
             table.timestamp("createdAt").defaultTo(knex.fn.now()),
             table.timestamp("updatedAt").defaultTo(knex.fn.now());
-        console.log("User table created");
+        console.log("subscriber table created");
     }).catch(err => {
         console.log(err);
     });
@@ -44,8 +44,7 @@ class User {
 
             return res[0]
         }).catch(err => {
-            console.log(err.message);
-            if (err.message.includes("duplicate key")) throw new Error("You have already been added to the waitlist.");
+            if (err.message.includes("duplicate key")) throw new Error("You have already subscribed to my newsletter");
 
             else throw new Error("Failed to create user");
         });
@@ -61,7 +60,6 @@ class User {
         });
     }
     getOneUser(email) {
-        console.log(email);
         return knex('subscriber').where(email).then(res => {
             console.log(res[0]);
             return res[0]

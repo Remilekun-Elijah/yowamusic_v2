@@ -19,14 +19,9 @@ environments.staging = {
 
     'database_user': 'postgres',
     'database_host': 'localhost',
-    'database': 'easyfood',
+    'database': 'yowamusic',
     'database_password': '12345',
     'database_port': 5432,
-
-    'user': "ewmrhumr_remilekunelijah",
-    'db': "entrep20_entrepreneurshookup",
-
-    'pin': "09023007389@fb.com",
 
     "cloudinary_apiKey": "467886654622314",
     'cloudinary_api_secret': 'CSTLasPM7kL5c2JQuoplitK65xI',
