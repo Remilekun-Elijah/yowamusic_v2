@@ -24,16 +24,16 @@
             position: relative;
             z-index: 1;
         }
-        
+
         html.ie-10 .ie-panel,
         html.lt-ie-10 .ie-panel {
             display: block;
         }
-        
+
         .bio-img {
             height: auto !important;
         }
-        
+
         @media screen and (min-width:991px) {
             .bio-img {
                 height: 670px !important
@@ -151,7 +151,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-11 col-lg-6 col-xl-6"><img src="../images/public/gallery/bio.jpg" alt="" class="bio-img" width="634" />
+                    <div class="col-md-11 col-lg-6 col-xl-6"><img src="../images/public/gallery/bio.jpg" style="object-fit: scale-down"  alt="" class="bio-img" width="634" />
                     </div>
                 </div>
             </div>
@@ -194,13 +194,13 @@
 
         <!-- Page Footer-->
         <footer class="section footer-creative footer-creative-2">
+          <%- include('../../partials/footer')%>
         </footer>
 
         </div>
         <div class="snackbars" id="form-output-global"></div>
-        <script src="../js/core.min.js"></script>
-        <script src="../js/script.js"></script>
-        <script src="../components/footer.js"></script>
+        <script src="../js/core.min.js" defer></script>
+        <script src="../js/script.js" defer></script
 
 </body>
 

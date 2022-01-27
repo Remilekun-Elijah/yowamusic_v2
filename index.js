@@ -1,4 +1,5 @@
 const path = require("path");
+const helper = require(path.resolve('utils/helper'))
 // const config = require(path.resolve("config.js"));
 const config = {
     port: process.env.PORT || 3000
@@ -38,6 +39,8 @@ app.use(route('contact'));
 
 
 app.use(morgan('dev'));
+
+app.use(helper.notFoundErrorHandler)
 
 app.listen(config.port, () => {
     console.log(chalk.yellow("🚀 server launched on port "), config.port);

@@ -25,12 +25,12 @@
             position: relative;
             z-index: 1;
         }
-        
+
         html.ie-10 .ie-panel,
         html.lt-ie-10 .ie-panel {
             display: block;
         }
-        
+
         .overlay {
             position: absolute;
             content: "";
@@ -41,7 +41,7 @@
             height: 100%;
             z-index: 1
         }
-        
+
         .jp-player-init .jp-playlist {
             padding-bottom: 10px !important;
         }
@@ -324,13 +324,14 @@
 
         <!-- Page Footer-->
         <footer class="section footer-creative footer-creative-2">
+          <%- include('../../partials/footer')%>
         </footer>
         </div>
 
         <div class="snackbars" id="form-output-global"></div>
-        <script src="../js/core.min.js"></script>
-        <script src="../js/script.js"></script>
-        <script src="../components/footer.js"></script>
+        <script src="../js/core.min.js" defer></script>
+        <script src="../js/script.js" defer></script>
+
 
         <script>
             document.querySelectorAll("button[data-url]").forEach(tag => {

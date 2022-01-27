@@ -25,12 +25,12 @@
             position: relative;
             z-index: 1;
         }
-        
+
         html.ie-10 .ie-panel,
         html.lt-ie-10 .ie-panel {
             display: block;
         }
-        
+
         .overlay {
             position: absolute;
             content: "";
@@ -41,11 +41,11 @@
             height: 100%;
             z-index: 1
         }
-        
+
         iframe {
             width: 320px !important;
         }
-        
+
         @media screen and (min-width: 768px) {
             iframe {
                 width: 650px !important;
@@ -166,13 +166,13 @@
 
         <!-- Page Footer-->
         <footer class="section footer-creative footer-creative-2">
-
+          <%- include('../../partials/footer')%>
         </footer>
         </div>
         <div class="snackbars" id="form-output-global"></div>
-        <script src="../js/core.min.js "></script>
-        <script src="../js/script.js "></script>
-        <script src="../components/footer.js "></script>
+        <script src="../js/core.min.js" defer></script>
+        <script src="../js/script.js" defer></script>
+
 </body>
 
 </html>
